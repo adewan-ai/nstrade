@@ -9,6 +9,9 @@ def run_backtest(strategy_class, df, initial_capital=10000):
     # Local copy in memory for us to work with
     df = df.copy()    
 
+    df.head(1000)
+    df.info()
+
     # Initialize strategy
     strat = strategy_class(initial_capital=initial_capital)
 
@@ -21,6 +24,7 @@ def run_backtest(strategy_class, df, initial_capital=10000):
         bar = {'time': row['time'], 'close': row['close'], 'volume': row['volume']}
         strat.process_bar(bar)
         signal = strat.get_signal()
+        print(signal)
 
         # Enforce long-only, full portfolio, no re-buying, no shorting
         if signal == 'buy' and position == 0:

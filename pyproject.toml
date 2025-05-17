@@ -5,6 +5,8 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
+    "auto-ml>=2.7.7",
+    "autogluon>=1.3.0",
     "ipykernel>=6.29.5",
     "matplotlib>=3.10.3",
     "pandas>=2.2.3",
